@@ -23,6 +23,8 @@ shinyServer(
       
       # plot the user inputted regression line 
       abline(intercept, slope) 
+      # the correct intercept and slope can be calculated with the command:
+      # lm(longley$Population ~longley$Year0, longley)
       
       # Add some variables on text
       # intercept and slope in the end doesn't make so much sense since
@@ -35,6 +37,7 @@ shinyServer(
       
     })
     
+    #Residual plot
     output$resPlot <- renderPlot({
             intercept <- input$intercept
             slope <- input$slope
@@ -43,7 +46,6 @@ shinyServer(
            main="Residuals of the fitted regression curve")
       axis(1, at=0:15, labels=longley$Year)
       
-    })
-    
+    })    
   }
 )
